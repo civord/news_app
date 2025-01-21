@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+
+:root{
+    --blue-color-1: rgb(179, 206, 254);
+    --blue-color-2: rgb(196, 213, 251);
+    --main-gradient: linear-gradient(90deg, rgba(2,0,36,1) 0%, var(--blue-color-1) 0%, var(--blue-color-2) 100%);
+    --main-font-family: "Poppins", sans-serif;
+    --logo-font: "Dancing Script", cursive;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    padding: 40px 100px;
+    z-index: 20;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+header ul li{
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    vertical-align: middle;
+    cursor: pointer;
+}

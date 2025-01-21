@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* Light gray background */
+    color: #333; /* Dark text */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto; /* Center content */
+    background-color: #fafafa; /* White background for the article */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #222; /* Slightly darker heading */
+}
+
+p {
+    margin: 15px 0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+p.date{
+    margin: 0;
+    font-size: .9rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+i{
+    margin: 0 5px 0 3px;
+}
+
+h3.title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000; /* Black for a bold effect */
+    text-transform: capitalize;
+}
+
+p.description {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555; /* Lighter gray */
+    margin-bottom: 5px;
+}
+
+img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 0;
+    border-radius: 5px; /* Optional rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+p.content {
+    font-size: 1rem; /* Slightly larger text */
+    line-height: 1.5; /* More spacing between lines */
+    color: #333; /* Dark gray for readability */
+    text-align: left; /* Justify for cleaner alignment */
+    margin-bottom: 20px; /* Space below paragraphs */
+    text-indent: 20px; /* Indent the first line */
+    letter-spacing: 0.3px; /* Subtle letter spacing */
+    word-spacing: 2px; /* Slightly more spacing between words */
+    margin-bottom: 30px;
+}
+
+a {
+    color: #007bff; /* Blue links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p.content {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block nav %}
+    <nav>      
+        <ul>
+            <a id="menu-icon" href="/"><i class="fa-solid fa-house menu-icon"></i></a>
+            <div class="input-div">
+                <input type="text" name="search" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="icons-div">
+                <li><a href="/add_news"><i class="fa-solid fa-plus"></i></a></li>
+                <li>
+                    <div class="profile-photo"></div>
+                </li>
+            </div>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block main %}
+    
+    <section class="table">
+        <h1 class="dashboard-h1">Dashboard</h1>
+        <table class="table-content">
+            <thead>
+                <th>Article</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th></th>
+            </thead>
+            <tbody id="tbody">
+                {% for article in articles %}
+                    <tr>
+                        <td>
+                            <div class="td-container">
+                                <div style="background-image: url('{{ article.image_path }}');" class="image-container"></div>
+                                <h2 class="article-title">{{ article.title }}</h2>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="article-type-container">
+                                <p style="background-color: {{ types[article.type] }};" class="article-type">{{ article.type }}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <h2 class="date">{{ article.date }}</h2>
+                        </td>
+                        <td>
+                            <form action="/delete_news" method="post" onsubmit="return confirm('Are you sure you want to delete this article?');">
+                                <input type="hidden" name="article_id" value="{{ article.id }}">
+                                <button class="delete-button"><i class="fa-solid fa-x"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

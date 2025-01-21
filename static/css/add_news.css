@@ -1,0 +1,103 @@
+.contact-section{
+    display: flex;
+}
+
+#back-btn{
+    font-size: 20px;
+    color: var(--blue-color-1);
+    cursor: pointer;
+}
+
+.contact-img{
+    width: 50%;
+    height: 100vh;
+    background-image: url(/static/images/landscape.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-content{
+    width: 50%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-content > h1{
+    margin-bottom: 1.5rem;
+    font-size: 50px;
+
+}
+
+.form-content form > div{
+    margin-bottom: 1rem;
+}
+
+.form-content form{
+    width: 54%;
+}
+
+.form-content form > div input, div textarea, div select{
+    padding: .5rem;
+    border-radius: 25px;
+    background-color: rgba(240,244,250,255);
+    border-color: transparent;
+    padding-left: .7rem;
+    outline: none;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.15);
+    border: 2px solid transparent;
+    transition: .5s ease;
+}
+
+.form-content form > .contact-name input{
+    width: 100%;
+}
+
+.form-content form > .contact-email input{
+    width: 100%;
+}
+
+.form-content form > .contact-textarea textarea{
+    width: 100%;
+    resize: none;
+}
+
+.form-content form > .submit-btn{
+    padding: .7rem;
+    width: 7rem;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    background: var(--main-gradient);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .5s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-content form > .submit-btn:first-of-type{
+    width: 10rem;
+    background: rgb(237, 184, 120);
+}
+
+.form-content form > .submit-btn:first-of-type:hover{
+    outline: 2px solid rgb(237, 184, 120);
+}
+
+.form-content form > .submit-btn:hover{
+    background: none;
+    background-color: rgba(240,244,250,255);
+    color: #000;
+    outline: 2px solid var(--blue-color-1);
+}
+
+.form-content form > .news-type select{
+    width: 70%;
+}
+
+.focused{
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--blue-color-1);
+}

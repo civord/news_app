@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7555c6f885.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    {% endblock %}
+    <title>Log In</title>
+</head>
+<body>
+    <main id="login-main">
+        <div class="wrapper">
+            <div class="login-container">
+                <form class="form-el" action="/login" method="post">
+                    <h1>Login</h1>
+                    <div class="input-box">
+                        <input type="text" name="username" id="username" autocomplete="off" autofocus placeholder="Username">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <button class="login-btn" type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {% if get_flashed_messages() %}
+        <header>
+            <div class="alert alert-primary mb-0 text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+</body>
+</html>
+
+    

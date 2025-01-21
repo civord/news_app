@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+{% endblock %}
+
+{% block main %}
+    <div class="article-container">
+        <!-- Article Items -->
+        <div class="article-wrapper swiper-wrapper">
+            {% for article in articles %}
+                <div style="background: linear-gradient(rgba(63, 63, 65, 0.6), rgba(63, 63, 65, 0.6)), url('{{ article.image_path}}'); background-position: center;
+                background-size: cover;" class="article-item swiper-slide">
+                    <div class="article-content">
+                        <h2 class="article-type">{{ article["type"] }}</h2>
+                        <h1 class="article-title">{{ article["title"] }}</h1>
+                        <p class="article-description">{{ article["description"] }}</p>
+                        <a href="{{ url_for('view_news', article_id=article.id) }}" class="article-btn"><span>Read More</span></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Article Navigations-->
+        <div class="article-navigations">
+            <button id="slide-prev" class="material-symbols-outlined">arrow_left_alt</button>
+            <button id="slide-next" class="material-symbols-outlined">arrow_right_alt</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <!-- Swiper Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script src="/static/js/script.js"></script>
+{% endblock %}

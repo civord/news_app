@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ article.title}} {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article.css') }}">
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h3 class="title">{{ article.title }}</h3>
+        <p class="description">{{ article.description }}</p>
+        <p class="date"><i class="fa-regular fa-clock"></i>Published {{ article.date }}</p>
+        <img src="/{{ article.image_path }}" alt="">
+        <p class="content">{{ article.content }}</p>
+    </div>
+{% endblock %}
