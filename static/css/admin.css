@@ -158,7 +158,6 @@ nav #menu-icon{
 }
 
 .td-container .image-container{
-    
     background-size: cover;
     border-radius: 50%;
     width: 50px;
@@ -201,6 +200,23 @@ nav #menu-icon{
     border: none;
     outline: none;
     transition: .4s ease;
+}
+
+.edit-button{
+    padding: .4rem;
+    width: 80px;
+    border-radius: 20px;
+    background-color: var(--blue-color-1);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    transition: .4s ease;
+}
+
+.edit-button:hover{
+    background-color: rgba(70, 102, 228, 0.686);
 }
 
 .delete-button:hover{

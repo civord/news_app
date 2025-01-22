@@ -56,6 +56,11 @@
                                 <button class="delete-button"><i class="fa-solid fa-x"></i></button>
                             </form>
                         </td>
+                        <td>
+                            <form action="/edit_news/{{ article.id }}" method="get">
+                                <button class="edit-button"><i class="fa-solid fa-pencil"></i></button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

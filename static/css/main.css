@@ -19,8 +19,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    background-position: center;
-    background-size: contain;
+    
 }
 
 .article-wrapper .article-item::before{

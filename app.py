@@ -1,7 +1,7 @@
 import os
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session, flash
+from flask import Flask, flash, redirect, render_template, request, session, flash, url_for
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
@@ -32,6 +32,26 @@ app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 db = SQL("sqlite:///news.db")
+
+def validate_input(title, description, article_type, content, image):
+    if not title:
+        flash("You must enter a title!")
+        return redirect("/add_news")
+    elif not description:
+        flash("You must enter a description!")
+        return redirect("/add_news")
+    elif not article_type:
+        flash("You must enter an article type / INVALID ARTICLE TYPE!")
+        return redirect("/add_news")
+    elif not content:
+        flash("You must enter the article's content!")
+        return redirect("/add_news")
+    elif not allowed_file(image.filename):
+        flash("Invalid image format! Allowed formats: png, jpg, jpeg, gif.")
+        return redirect("/add_news")
+    elif request.content_length > app.config['MAX_CONTENT_LENGTH']:
+        flash("File size exceeds limit!")
+        return redirect("/add_news")
 
 @app.route("/")
 def index():
@@ -125,28 +145,13 @@ def add_news():
         article_type = request.form.get("news_type")
         content = request.form.get("news_content")
         image = request.files["news_image"]
-        if not title:
-            flash("You must enter a title!")
-            return redirect("/add_news")
-        elif not description:
-            flash("You must enter a description!")
-            return redirect("/add_news")
-        elif not article_type:
-            flash("You must enter an article type / INVALID ARTICLE TYPE!")
-            return redirect("/add_news")
-        elif not content:
-            flash("You must enter the article's content!")
-            return redirect("/add_news")
-        elif not image:
+        
+        validate_input(title, description, article_type, content, image)
+
+        if not image:
             flash("You must upload an image!")
             return redirect("/add_news")
-        elif not allowed_file(image.filename):
-            flash("Invalid image format! Allowed formats: png, jpg, jpeg, gif.")
-            return redirect("/add_news")
-        elif request.content_length > app.config['MAX_CONTENT_LENGTH']:
-            flash("File size exceeds limit!")
-            return redirect("/add_news")
-
+        
         filename = secure_filename(image.filename)
         unique_filename = f"{uuid.uuid4()}_{filename}"
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
@@ -163,6 +168,38 @@ def add_news():
             return redirect("/add_news")
     else:
         return render_template("add_news.html", article_types=ARTICLE_TYPES)
+
+@app.route("/edit_news/<int:article_id>", methods = ["GET", "POST"])
+@login_required
+def edit_news(article_id):
+    article = db.execute("SELECT * FROM articles WHERE id=?", (article_id,))[0]
+    if not article:
+        return flash("Article Not Found"), 404
+    if request.method == "POST":
+        title = request.form.get("title")
+        description = request.form.get("description")
+        article_type = request.form.get("news_type")
+        content = request.form.get("news_content")
+        image = request.files["news_image"]
+
+        validate_input(title, description, article_type, content, image)
+        
+        if not image:
+            image_path = article["image_path"]
+        else:
+            filename = secure_filename(image.filename)
+            unique_filename = f"{uuid.uuid4()}_{filename}"
+            image_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+            image.save(image_path)
+
+        try:
+            db.execute("UPDATE articles SET title = ?, description = ?, type = ?, content = ?, image_path = ? WHERE id= ?", title, description, article_type, content, image_path, article_id)
+            return redirect(url_for('view_news', article_id=article_id))
+        except:
+            flash("Unable to update the article!")
+            return redirect(url_for("admin", article_id = article_id))
+    return render_template("edit_articles.html", article = article, article_types = ARTICLE_TYPES)
+        
 
 @app.route("/delete_news", methods = ["POST"])
 @login_required

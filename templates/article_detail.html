@@ -12,6 +12,6 @@
         <p class="description">{{ article.description }}</p>
         <p class="date"><i class="fa-regular fa-clock"></i>Published {{ article.date }}</p>
         <img src="/{{ article.image_path }}" alt="">
-        <p class="content">{{ article.content }}</p>
+        <p style="white-space: pre-wrap;" class="content">{{ article.content }}</p>
     </div>
 {% endblock %}
