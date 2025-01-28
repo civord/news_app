@@ -13,18 +13,21 @@
 <body>
     {% block nav %}
     {% endblock %}
-    <header>
+    <!-- <header>
         <ul>
             {% for type in article_types %}
                 <li>{{ type }}</li>
             {% endfor %}
         </ul>
-    </header>
+    </header> -->
 
     <main>
         {% block main %}{% endblock %}
     </main>
 
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
     {% block script %}{% endblock %}
 </body>
 </html>

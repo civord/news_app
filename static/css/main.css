@@ -195,3 +195,490 @@
         max-width: 100%;
     }
 }
+
+.news-container{
+   display: flex;
+   justify-content: center;    
+}
+
+.main-news{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.main-news .left-div, .right-div{
+    width: 30%;
+}
+
+.main-news div a{
+    text-decoration: none;
+    color: #000;
+}
+
+.main-news div a:hover{
+    text-decoration: underline;
+}
+
+.main-news .left-div > .left-first-div, .right-div > .right-first-div, .center-div > .center-news{
+    border-bottom: 1px solid #c4c4cb;
+    margin-bottom: .7rem;
+    
+}
+
+.main-news .left-div > .left-first-div > a > h2, .right-div > .right-first-div > a > h2, .center-div > .center-news > a > h2{
+    font-size: 20px;
+    font-weight: 700;
+    margin: .8rem 0 .8rem 0;    
+}
+
+.main-news .left-div > div:not(.left-first-div), .right-div > div:not(.right-first-div), .center-div > div:not(.center-news){
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid #c4c4cb;
+    padding-bottom: 1rem;
+}
+
+.main-news .left-div > div:last-of-type, .right-div > div:last-of-type, .center-div > div:last-of-type{
+    border-bottom: none;
+}
+
+.main-news .div-first-img{
+    width: 300px;
+}
+
+.center-div > .center-news > img{
+    width: 700px;
+    height: 400px;
+    image-rendering: auto;
+}
+
+.main-news h2{
+    font-size: 16px;
+}
+
+.main-news img{
+    width: 150px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.weekend-reads{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    border-top: 2px solid #c4c4cb;
+    padding-top: 2rem;
+    margin: 3rem 0 3rem 0;
+}
+
+
+
+div > #section-title{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.weekend-reads .first-card h3, .weekend-reads .second-card h3{
+    font-size: 20px;
+    font-weight: 700;
+    margin: .5rem 0 .7rem 0;
+}
+
+.weekend-reads .first-card h3:hover, .weekend-reads .second-card h3:hover{
+    text-decoration: underline;
+}
+
+.weekend-reads .first-card > p, .weekend-reads .second-card > p{
+    font-size: 14px;
+    width: 700px;
+}
+
+.weekend-reads .first-card img, .weekend-reads .second-card img{
+    width: 700px;
+    height: auto;
+}
+
+.first-card > div, .second-card > div{
+    display: flex;
+    gap: 1rem;
+}
+
+.first-card > div > p:first-of-type, .second-card > div > p:first-of-type{
+    border-right: 1px solid #c4c4cb;
+    padding-right: 1rem;
+}
+
+.first-card > div > p, .second-card > div > p{
+    font-size: 12px;
+    font-weight: 400;
+}
+/* Media Queries for Responsiveness */
+
+/* Tablet view */
+@media (max-width: 768px) {
+    .main-news {
+        flex-direction: column; /* Stack items vertically */
+        width: 90%;
+    }
+
+    .main-news .left-div, .main-news .right-div {
+        width: 100%; /* Full width for small screens */
+    }
+
+    .main-news .div-first-img {
+        width: 100%; /* Make images responsive */
+    }
+
+    .center-div > .center-news > img {
+        width: 100%; /* Make images responsive */
+        height: auto;
+    }
+
+    .weekend-reads {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
+        width: 90%;
+    }
+
+    .weekend-reads .first-card, .weekend-reads .second-card {
+        width: 100%; /* Full width for small screens */
+        margin-bottom: 1rem; /* Add spacing between cards */
+    }
+
+    .weekend-reads .first-card img, .weekend-reads .second-card img {
+        width: 100%; /* Ensure images are responsive */
+    }
+
+    .main-news h2 {
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .main-news img {
+        width: 100%; /* Make images responsive */
+    }
+
+    .first-card > div > p, .second-card > div > p {
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+}
+
+/* Must Watch Section */
+
+.must-watch-container {
+    position: relative;
+    width: 100%;
+    background-color: #1c1c1f; /* Matches the dark theme */
+    padding: .1rem 0 .1rem 0;
+}
+
+.must-watch {
+    width: 80%;
+    margin: 2rem auto; /* Center horizontally */
+    background-color: #323235; /* Matches the dark gray background */
+    padding: 1rem;
+    border-radius: 8px; /* Slightly rounded corners */
+    border-top: 2px solid #fff;
+}
+
+.must-watch > h2 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.must-watch > .elements-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.image-container {
+    position: relative;
+    width: 60%;
+}
+
+.image-container > img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 40%;
+    color: #ffffff;
+}
+
+.text-container > h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.text-container > p {
+    font-size: 1rem;
+    color: #d3d3d3;
+}
+
+.text-container > .see-more-btn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    align-self: flex-start;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-container > .see-more-btn:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .must-watch > .elements-container {
+        flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+        justify-content: space-between; /* Distribute space evenly */
+    }
+
+    .image-container {
+        width: 60%; /* Adjust width for larger screens */
+    }
+
+    .text-container {
+        width: 40%; /* Adjust width for larger screens */
+        text-align: left; /* Align text to the left */
+    }
+
+    .text-container > .see-more-btn {
+        align-self: flex-start; /* Align button to the left */
+    }
+}
+
+@media (min-width: 1200px) {
+    .must-watch {
+        padding: 2rem;
+    }
+
+    .must-watch > h2 {
+        font-size: 2rem;
+    }
+
+    .text-container > h3 {
+        font-size: 2rem;
+    }
+
+    .text-container > p {
+        font-size: 1.1rem;
+    }
+
+    .text-container > .see-more-btn {
+        font-size: 1rem;
+    }
+}
+
+.featured-container {
+    position: relative;
+    width: 100%;
+    text-align: center; /* Centers the title */
+}
+
+.featured-container h2 {
+    width: 80%;
+    margin: 2rem auto 1rem auto; /* Ensures it matches .featured width */
+    text-align: left; /* Aligns text to the left */
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.featured-cards > .section-type{
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.featured{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.featured > .featured-cards{
+    flex: 1 1 calc(30% - 1rem); /* Ensures consistent width */
+    text-align: left; /* Align text properly */
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid #323235;
+    padding-top: .7rem;
+    margin-bottom: 3rem;
+}
+
+.featured-cards > a > h3:not(.section-type){
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1rem 0 1rem 0;
+    padding-bottom: 1rem;
+}
+
+.featured-cards > a{
+    text-decoration: none;
+    color: #000;
+}
+
+.featured-cards > a > p{
+    border-top: 1px solid #c4c4cb;
+    padding-top: .6rem;
+}
+
+.featured-cards > a:hover{
+    text-decoration: underline;
+}
+
+.featured > .featured-cards > img{
+    width: 100%;
+    border-radius: 7px;
+    transition: .4s ease;
+}
+
+.featured-image-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .featured-image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+  }
+
+  .featured-image-container:hover .overlay {
+    background-color: rgba(114, 106, 106, 0.5); /* Gray transparent overlay */
+  }
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .featured {
+        width: 90%; /* Slightly wider for better spacing */
+    }
+    .featured > .featured-cards {
+        flex: 1 1 calc(45% - 1rem); /* 2 cards per row */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .featured {
+        width: 95%; /* Utilize more width on smaller screens */
+        flex-direction: column;
+        align-items: center;
+    }
+    .featured > .featured-cards {
+        flex: 1 1 100%; /* 1 card per row */
+    }
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    
+    background-color: #1c1c1f;
+}
+
+.footer-container{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+.footer-list{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0 2rem 0;
+}
+
+.footer-list > a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.footer-list > a:hover{
+    text-decoration: underline;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    padding-bottom: 2rem;
+}
+
+.social-media span {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-right: 2rem;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .footer-list {
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: center; /* Center items on smaller screens */
+    }
+
+    .footer-list > a {
+        font-size: 0.9rem; /* Slightly smaller font size for smaller screens */
+        padding: 0.3rem 0.5rem; /* Reduce padding for better spacing */
+    }
+
+    .social-media {
+        flex-direction: column; /* Stack social media items vertically */
+        gap: 1rem; /* Add spacing between items */
+        text-align: center; /* Center-align text */
+    }
+
+    .social-media span {
+        margin-right: 0; /* Remove the margin to prevent misalignment */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-list > a {
+        font-size: 0.8rem; /* Further reduce font size for very small screens */
+    }
+
+    .social-media span {
+        font-size: 0.9rem; /* Reduce text size for very small screens */
+    }
+}
