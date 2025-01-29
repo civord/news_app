@@ -223,19 +223,19 @@
     text-decoration: underline;
 }
 
-.main-news .left-div > .left-first-div, .right-div > .right-first-div, .center-div > .center-news{
+.main-news .left-div > div:first-of-type, .right-div > div:first-of-type, .center-div > div:first-of-type{
     border-bottom: 1px solid #c4c4cb;
     margin-bottom: .7rem;
     
 }
 
-.main-news .left-div > .left-first-div > a > h2, .right-div > .right-first-div > a > h2, .center-div > .center-news > a > h2{
+.main-news .left-div > div:first-of-type > a > h2, .right-div > div:first-of-type > a > h2, .center-div > div:first-of-type > a > h2{
     font-size: 20px;
     font-weight: 700;
     margin: .8rem 0 .8rem 0;    
 }
 
-.main-news .left-div > div:not(.left-first-div), .right-div > div:not(.right-first-div), .center-div > div:not(.center-news){
+.main-news .left-div > div:not(div:first-of-type), .right-div > div:not(div:first-of-type), .center-div > div:not(div:first-of-type){
     display: flex;
     gap: 1rem;
     margin-bottom: .5rem;
@@ -243,17 +243,13 @@
     padding-bottom: 1rem;
 }
 
-.main-news .left-div > div:last-of-type, .right-div > div:last-of-type, .center-div > div:last-of-type{
-    border-bottom: none;
+.main-news > .left-div > div:first-of-type > img, .main-news > .right-div > div:first-of-type > img{
+    width: 100%;
 }
 
-.main-news .div-first-img{
-    width: 300px;
-}
-
-.center-div > .center-news > img{
-    width: 700px;
-    height: 400px;
+.center-div > div:first-of-type > img{
+    width: 100%;
+    height: auto;
     image-rendering: auto;
 }
 
@@ -274,9 +270,8 @@
     border-top: 2px solid #c4c4cb;
     padding-top: 2rem;
     margin: 3rem 0 3rem 0;
+    gap: 1rem;
 }
-
-
 
 div > #section-title{
     font-size: 25px;
@@ -300,7 +295,8 @@ div > #section-title{
 
 .weekend-reads .first-card img, .weekend-reads .second-card img{
     width: 700px;
-    height: auto;
+    height: 500px;
+    object-fit: cover;
 }
 
 .first-card > div, .second-card > div{
@@ -550,6 +546,7 @@ div > #section-title{
     width: 100%;
     border-radius: 7px;
     transition: .4s ease;
+    
 }
 
 .featured-image-container {
@@ -562,7 +559,8 @@ div > #section-title{
     display: block;
     width: 100%;
     height: auto;
-    
+    height: 300px;
+    object-fit: cover;
   }
 
   .overlay {

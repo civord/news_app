@@ -34,70 +34,49 @@
     <div class="news-container">
         <section class="main-news">
             <div class="left-div">
-                <div class="left-first-div">
-                    <img class="div-first-img" src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Where to watch the best picture Oscar nominees</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Where to watch the best picture Oscar nominees</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Where to watch the best picture Oscar nominees</h2></a>
-                </div>
+                {% for article in left_news %}
+                    <div>
+                        <img src="{{ article.image_path }}" alt="">
+                        <a href=""><h2>{{ article.title }}</h2></a>
+                    </div>
+                {% endfor %}
             </div>
             <div class="center-div">
-                <div class="center-news">
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Close-up photography prize unveils nature's hidden beauty and brutality</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Close-up photography prize unveils nature's hidden beauty and brutality</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Close-up photography prize unveils nature's hidden beauty and brutality</h2></a>
-                </div>
+                {% for article in center_news %}
+                    <div>
+                        <img src="{{ article.image_path }}" alt="">
+                        <a href=""><h2>{{ article.title }}</h2></a>
+                    </div>
+                {% endfor %}
             </div>
             <div class="right-div">
-                <div class="right-first-div">
-                    <img class="div-first-img" src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Madison Keys looks for first major title at AO, while Aryna Sabalenka hopes to 'put my name into history'</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Madison Keys looks for first major title at AO, while Aryna Sabalenka hopes to 'put my name into history'</h2></a>
-                </div>
-                <div>
-                    <img src="/static/images/djokovic-murray-ao-2025-tuesday-1.jpg" alt="">
-                    <a href=""><h2>Madison Keys looks for first major title at AO, while Aryna Sabalenka hopes to 'put my name into history'</h2></a>
-                </div>
+                {% for article in right_news %}
+                    <div>
+                        <img src="{{ article.image_path }}" alt="">
+                        <a href=""><h2>{{ article.title }}</h2></a>
+                    </div>
+                {% endfor %}
             </div>
         </section>
-    </div>
-    <div>
-        
     </div>
     <div class="news-container">
         <section class="weekend-reads">
             <div class="first-card">
-                <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                <h3 class="news-header">The nation that wants you to embrace your sleeping side</h3>
-                <p class="news-description">Sweden's long cold nights might put you off going there in winter, unless, that is, you are in search of a good night's sleep</p>
+                <img src="{{ weekend_reads_left[0].image_path }}" alt="">
+                <h3 class="news-header">{{ weekend_reads_left[0].title }}</h3>
+                <p class="news-description">{{ weekend_reads_left[0].description }}</p>
                 <div>
                     <p class="post-date">3 days ago</p>
-                    <p class="news-type">Travel</p>
+                    <p class="news-type">{{ weekend_reads_left[0].type }}</p>
                 </div>
             </div>
             <div class="second-card">
-                <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                <h3 class="news-header">The nation that wants you to embrace your sleeping side</h3>
-                <p class="news-description">Sweden's long cold nights might put you off going there in winter, unless, that is, you are in search of a good night's sleep</p>
+                <img src="{{ weekend_reads_right[0].image_path }}" alt="">
+                <h3 class="news-header">{{ weekend_reads_right[0].title }}</h3>
+                <p class="news-description">{{ weekend_reads_right[0].description }}</p>
                 <div>
                     <p class="post-date">5 days ago</p>
-                    <p class="news-type">Business</p>
+                    <p class="news-type">{{ weekend_reads_right[0].type }}</p>
                 </div>
             </div>
         </section>
@@ -122,62 +101,22 @@
 
     <div class="featured-container">
         <h2>Featured Sections</h2>
-        <section class="featured">
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero consequatur sequi libero veniam. Corporis nostrum mollitia, odio dolorum omnis molestiae quaerat nam aspernatur autem, cum rem culpa sequi adipisci reprehenderit!</p></a>
-            </div>
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></a>
-            </div>
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></a>
-            </div>
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero consequatur sequi libero veniam. Corporis nostrum mollitia, odio dolorum omnis molestiae quaerat nam aspernatur autem, cum rem culpa sequi adipisci reprehenderit!</p></a>
-            </div>
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></a>
-            </div>
-            <div class="featured-cards">
-                <h3 class="section-type">Sports</h3>
-                <div class="featured-image-container">
-                    <img src="/static/images/932f07a5-c979-4d18-80f9-a6cf16d448fa_nole.jpg" alt="">
-                    <div class="overlay"></div>
-                </div>
-                <a href=""><h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3></a>
-                <a href=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></a>
-            </div>
-        </section>
+        
+            <section class="featured">
+                {% for article_type, articles in articles_by_type.items() %}
+                    <div class="featured-cards">
+                        <h3 class="section-type">{{ articles[0].type }}</h3>
+                        <div class="featured-image-container">
+                            <img src="{{ articles[0].image_path}}" alt="">
+                            <div class="overlay"></div>
+                        </div>
+                        <a href=""><h3>{{ articles[0].title }}</h3></a>
+                        {% for article in articles[1:] %}
+                            <a href=""><p>{{ article.title }}</p></a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </section>
     </div>
 {% endblock %}
 

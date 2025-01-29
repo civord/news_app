@@ -1,5 +1,6 @@
 import os
 
+import random
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session, flash, url_for
 from flask_session import Session
@@ -57,10 +58,42 @@ def validate_input(title, description, article_type, content, image):
 def index():
     try:
         articles = db.execute("SELECT * FROM articles")
+        featured_articles = db.execute("SELECT * FROM articles")
+        main_news = db.execute("SELECT * FROM articles ORDER BY date DESC LIMIT 9")
+        main_news_ids = [article["id"] for article in main_news]
+        existing_article_types = db.execute("SELECT type FROM articles GROUP BY type HAVING COUNT(type) >= 2")
+        types_list = [row["type"] for row in existing_article_types]
+        weekend_reads_left = db.execute("SELECT * FROM articles WHERE type=? ORDER BY date DESC LIMIT 1", random.choice(types_list))
+        weekend_reads_right = db.execute("SELECT * FROM articles WHERE type=? ORDER BY date DESC LIMIT 1", random.choice(types_list))
+        if main_news_ids:
+            placeholders = ",".join(["?"] * len(main_news_ids))  # Create a string like "?, ?, ?" for SQL
+            articles = db.execute(
+                f"SELECT * FROM articles WHERE id NOT IN ({placeholders}) ORDER BY date DESC",
+                *main_news_ids
+            )
+        else:
+            articles = db.execute("SELECT * FROM articles ORDER BY date")
+
+        articles_by_type = {}
+        for article in featured_articles:
+            if article['type'] not in articles_by_type:
+                articles_by_type[article['type']] = []
+            articles_by_type[article['type']].append(article)
+
+        print(articles_by_type)
+        left_news = main_news[:3]
+        center_news = main_news[3:6]
+        right_news = main_news[6:9]
     except:
-        flash("FAILED TO FETCH ARTICLES FROM THE DATABASE")
         return redirect("/")
-    return render_template("index.html", articles = articles, article_types = ARTICLE_TYPES)
+        
+    return render_template("index.html", articles = articles, article_types = ARTICLE_TYPES, 
+        left_news=left_news,
+        center_news=center_news,
+        right_news=right_news,
+        weekend_reads_left = weekend_reads_left,
+        weekend_reads_right = weekend_reads_right,
+        articles_by_type = articles_by_type)
 
 
 @app.route("/login", methods = ["GET", "POST"])
