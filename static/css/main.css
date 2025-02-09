@@ -245,12 +245,15 @@
 
 .main-news > .left-div > div:first-of-type > img, .main-news > .right-div > div:first-of-type > img{
     width: 100%;
+    height: 240px;
+    object-fit: cover;
 }
 
 .center-div > div:first-of-type > img{
     width: 100%;
-    height: auto;
+    height: 400px;
     image-rendering: auto;
+    object-fit: cover;
 }
 
 .main-news h2{
@@ -259,8 +262,9 @@
 
 .main-news img{
     width: 150px;
-    height: auto;
+    height: 85px;
     border-radius: 6px;
+    object-fit: cover;
 }
 
 .weekend-reads{
@@ -278,7 +282,12 @@ div > #section-title{
     font-weight: 700;
 }
 
-.weekend-reads .first-card h3, .weekend-reads .second-card h3{
+.weekend-reads a{
+    color: #000;
+    text-decoration: none;
+}
+
+.weekend-reads .first-card a h3, .weekend-reads .second-card a h3{
     font-size: 20px;
     font-weight: 700;
     margin: .5rem 0 .7rem 0;
@@ -319,6 +328,7 @@ div > #section-title{
 @media (max-width: 768px) {
     .main-news {
         flex-direction: column; /* Stack items vertically */
+        flex-wrap: wrap;
         width: 90%;
     }
 
@@ -326,13 +336,14 @@ div > #section-title{
         width: 100%; /* Full width for small screens */
     }
 
-    .main-news .div-first-img {
-        width: 100%; /* Make images responsive */
+    .main-news .left-div > div, .right-div > div, .center-div > div{
+        display: flex;
+        flex-direction: column;
     }
 
-    .center-div > .center-news > img {
-        width: 100%; /* Make images responsive */
-        height: auto;
+    .main-news img{
+        width: 100%;
+        height: 250px;
     }
 
     .weekend-reads {
@@ -513,6 +524,7 @@ div > #section-title{
 
 .featured > .featured-cards{
     flex: 1 1 calc(30% - 1rem); /* Ensures consistent width */
+    max-width: calc(30% - 1rem);
     text-align: left; /* Align text properly */
     display: flex;
     flex-direction: column;
@@ -546,7 +558,6 @@ div > #section-title{
     width: 100%;
     border-radius: 7px;
     transition: .4s ease;
-    
 }
 
 .featured-image-container {
@@ -584,6 +595,7 @@ div > #section-title{
     }
     .featured > .featured-cards {
         flex: 1 1 calc(45% - 1rem); /* 2 cards per row */
+        max-width: calc(45% - 1rem);
     }
 }
 
@@ -595,6 +607,7 @@ div > #section-title{
     }
     .featured > .featured-cards {
         flex: 1 1 100%; /* 1 card per row */
+        max-width: 100%;
     }
 }
 

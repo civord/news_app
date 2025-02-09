@@ -13,13 +13,23 @@
 <body>
     {% block nav %}
     {% endblock %}
-    <!-- <header>
-        <ul>
+    {% if main %}
+    <nav class="main-header">  
+        <ul class="sidebar-list">
+            <li onclick=closeSidebar()><a href="#"><i class="fa-solid fa-x"></i></a></li>
             {% for type in article_types %}
-                <li>{{ type }}</li>
+                <li><a href="{{ url_for('more_news', category=type) }}">{{ type }}</a></li>
             {% endfor %}
         </ul>
-    </header> -->
+        <ul class="main-list">
+            <li class="hide_on_mobile"><a href="" class="logo">Logo</a></li>
+            {% for type in article_types %}
+                <li class="hide_on_mobile"><a href="{{ url_for('more_news', category=type) }}">{{ type }}</a></li>
+            {% endfor %}
+            <li class="menu-btn" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+        </ul>
+    </nav>
+    {% endif %}
 
     <main>
         {% block main %}{% endblock %}
@@ -29,5 +39,20 @@
         {% block footer %}{% endblock %}
     </footer>
     {% block script %}{% endblock %}
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            const header = document.querySelector("nav")
+            header.classList.toggle("sticky", window.scrollY > 800);
+        })
+    </script>
+    <script>
+        const sidebar = document.querySelector(".sidebar-list")
+        function showSidebar(){
+            sidebar.style.display = "flex";
+        }
+        function closeSidebar(){
+            sidebar.style.display = "none";
+        }
+    </script>
 </body>
 </html>

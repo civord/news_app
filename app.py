@@ -93,7 +93,8 @@ def index():
         right_news=right_news,
         weekend_reads_left = weekend_reads_left,
         weekend_reads_right = weekend_reads_right,
-        articles_by_type = articles_by_type)
+        articles_by_type = articles_by_type,
+        main=True)
 
 
 @app.route("/login", methods = ["GET", "POST"])
@@ -251,3 +252,8 @@ def view_news(article_id):
     if not article:
         return flash("Article not found"), 404
     return render_template("article_detail.html", article=article[0])
+
+@app.route("/news/<category>")
+def more_news(category):
+    articles = db.execute("SELECT * FROM articles WHERE type=?", category)
+    return render_template("more_news.html", articles=articles, category=category, article_types = ARTICLE_TYPES)

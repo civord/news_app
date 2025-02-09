@@ -37,7 +37,7 @@
                 {% for article in left_news %}
                     <div>
                         <img src="{{ article.image_path }}" alt="">
-                        <a href=""><h2>{{ article.title }}</h2></a>
+                        <a href="{{ url_for('view_news', article_id=article.id) }}"><h2>{{ article.title }}</h2></a>
                     </div>
                 {% endfor %}
             </div>
@@ -45,7 +45,7 @@
                 {% for article in center_news %}
                     <div>
                         <img src="{{ article.image_path }}" alt="">
-                        <a href=""><h2>{{ article.title }}</h2></a>
+                        <a href="{{ url_for('view_news', article_id=article.id) }}"><h2>{{ article.title }}</h2></a>
                     </div>
                 {% endfor %}
             </div>
@@ -53,7 +53,7 @@
                 {% for article in right_news %}
                     <div>
                         <img src="{{ article.image_path }}" alt="">
-                        <a href=""><h2>{{ article.title }}</h2></a>
+                        <a href="{{ url_for('view_news', article_id=article.id) }}"><h2>{{ article.title }}</h2></a>
                     </div>
                 {% endfor %}
             </div>
@@ -63,7 +63,7 @@
         <section class="weekend-reads">
             <div class="first-card">
                 <img src="{{ weekend_reads_left[0].image_path }}" alt="">
-                <h3 class="news-header">{{ weekend_reads_left[0].title }}</h3>
+                <a href="{{ url_for('view_news', article_id=weekend_reads_left[0].id) }}"><h3 class="news-header">{{ weekend_reads_left[0].title }}</h3></a>
                 <p class="news-description">{{ weekend_reads_left[0].description }}</p>
                 <div>
                     <p class="post-date">3 days ago</p>
@@ -72,7 +72,7 @@
             </div>
             <div class="second-card">
                 <img src="{{ weekend_reads_right[0].image_path }}" alt="">
-                <h3 class="news-header">{{ weekend_reads_right[0].title }}</h3>
+                <a href="{{ url_for('view_news', article_id=weekend_reads_right[0].id) }}"><h3 class="news-header">{{ weekend_reads_left[0].title }}</h3></a>
                 <p class="news-description">{{ weekend_reads_right[0].description }}</p>
                 <div>
                     <p class="post-date">5 days ago</p>
@@ -110,9 +110,9 @@
                             <img src="{{ articles[0].image_path}}" alt="">
                             <div class="overlay"></div>
                         </div>
-                        <a href=""><h3>{{ articles[0].title }}</h3></a>
+                        <a href="{{ url_for('view_news', article_id=articles[0].id) }}"><h3>{{ articles[0].title }}</h3></a>
                         {% for article in articles[1:] %}
-                            <a href=""><p>{{ article.title }}</p></a>
+                            <a href="{{ url_for('view_news', article_id=article.id) }}"><p>{{ article.title }}</p></a>
                         {% endfor %}
                     </div>
                 {% endfor %}

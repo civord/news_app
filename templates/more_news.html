@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/more_news.css') }}">
+{% endblock %}
+
+{% block nav %}
+    <header>
+        <a href="" class="logo">Logo</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            {% for type in article_types %}
+                <li><a href="{{ url_for('more_news', category=type) }}">{{ type }}</a></li>
+            {% endfor %}
+        </ul>
+    </header>
+{% endblock %}
+
+{% block main %}   
+    {% if articles %}
+            <div class="container">
+                <h2>{{ category }}</h3>
+                <div class="article-container">
+                    {% for article in articles %}
+                        <div class="article">
+                            <img src="/{{ article['image_path']}}" alt="">
+                            <div class="text-container">
+                                <a href="{{ url_for('view_news', article_id=article.id) }}"><h3 class="article-title">{{ article.title }}</h3></a>
+                                <p class="article-date">{{ article.date }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    {% else %}
+        <p>No articles found for this category.</p>
+    {% endif %}
+{% endblock %}
